@@ -73,7 +73,7 @@ if ($_SESSION['username']!= true){
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#"><img src="posted_images/logo.jpeg" height="60" width="100"></a></li>
+                <li class="sidebar-brand"><a href="#">UIN</a></li>
 				<li><a class="active" href="home.php">Home</a></li>
                 <li><a href="index.php">User Accounts</a></li>
                 <li><a class="active" href="posts.php">posts</a></li>

@@ -113,7 +113,7 @@ if ($_SESSION['username']!= true){
 						
 		<div class="form-group">
 			<div  class="col-xs-10" >
-		<a href="create_university.php">Add university</a>
+		<a href="create_university.php"><button type="button" href="create_university.php"class="btn btn-primary">Add university</button></a><hr/>
 				<table  style='width:100%'>
 					<tr>
 						<th>&nbsp&nbsp&nbsp&nbsp category name</th>

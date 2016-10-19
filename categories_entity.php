@@ -159,7 +159,7 @@ if ($_SESSION['username']!= true){
 							  mysqli_close($connect);
 							  ?>
 							  
-							  <div class="form-group" style="text-align:center" class="form-group required"><hr/>
+							  <div class="form-group" style="text-align:center" class="form-group required">
 					<a target='_blank' href="tnc.html">| term and conditions of use | Powered by University Intellectual Nertwork &nbsp &#9400; 2016</a><hr/>
 				</div>
 			</div>

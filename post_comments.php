@@ -67,9 +67,14 @@ if ($_SESSION['username']!= true){
 		border-spacing: 15px;
 		}
 	</style>
+	
+
 </head>
+
 <body>
+
     <div id="wrapper">
+
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -110,50 +115,59 @@ if ($_SESSION['username']!= true){
 					?>
 				</div>
 			</nav> <hr/>
-						
-		<div class="form-group">
-			<div  class="col-xs-10" >
-		<a href="create_university.php"><button type="button" href="create_university.php"class="btn btn-primary">Add university</button></a><hr/>
-				<table  style='width:100%'>
-					<tr>
-						<th>&nbsp&nbsp&nbsp&nbsp University name</th>
-						<th>&nbsp&nbsp&nbsp&nbsp </th>
-						<th>&nbsp&nbsp&nbsp&nbsp Description</th>														
-					</tr>	
-				</table>
-                      	
-				<?php
-					require_once('connectvars.php');				
-				// Connect to the database 
-					$connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
-				// Retrieve the score data from MySQL
-					$query = "SELECT * FROM  `university`";
-					$data = mysqli_query($connect, $query);
-				// Loop through the array of score data, formatting it as HTML 
-					$i = 0;
 					
-					while ($row = mysqli_fetch_array($data)) { 
-				// Display the score data
+					
+					
+			<div class="form-group">
+				<div  class="col-xs-10" >
+				
+				<?php
+				// including shared files 
+					require_once('connectvars.php');
+				
+					if (isset($_GET['eid']))
+					{	
+					// Grab the score data from the GET
+						$eid = $_GET['eid'];
+					}
+				  
+					else if (isset($_POST['eid'])) 
+					{
+                    // Grab the score data from the POST
+						$eid = $_POST['eid'];
+			   	    }
+				  
+				    // Connect to the database 
+						$connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+				        $query = "SELECT * FROM comments WHERE eid = '$eid' ";
+					    $data = mysqli_query($connect, $query);
+							
+					// Loop through the array of score data, formatting it as HTML 
+					$i = 0;
+						while ($row = mysqli_fetch_array($data)) 
+						{ 
+					// Display the score data
 							if ($i == 0) 
-							{
-							}
-							echo "<table style='width:100%; text-align:left;'>";
-									echo"<tr>";
-										echo '<td><a href="university_user.php?uni_id='.$row['uni_id'].'">&nbsp&nbsp&nbsp&nbsp' . $row['uni_name'] .'</a></td>';
-										echo '<td><a href="edit_university.php?uni_id='.$row['uni_id'].'">&nbsp&nbsp&nbsp&nbsp' . $row['uni_name'] .'</a></td>';
-										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['uni_description'] .'</td>';
-									echo"</tr>";
-								$i++;									
-							echo"</table>";
-					}		
-				mysqli_close($connect);
-
-				?>												  
-				<div class="form-group" style="text-align:center" class="form-group required"><hr/><a target='_blank' href="tnc.html">| term and conditions of use | Powered by University Intellectual Nertwork &nbsp &#9400; 2016</a><hr/></div>				  		
+								{
+								}
+					//echo all post details
+									echo "<hr>";									
+									echo '<p>'.'<b>'.$row['username'].'</b>'.'&nbsp:&nbsp'. $row['description'] . '</p>';
+									echo "<hr>";
+						}
+							  mysqli_close($connect);
+							  ?>
+							  
+							  <div class="form-group" style="text-align:center" class="form-group required">
+					<a target='_blank' href="tnc.html">| term and conditions of use | Powered by University Intellectual Nertwork &nbsp &#9400; 2016</a><hr/>
+				</div>
 			</div>
-		</div>	
-	</form>
+		</div>	  				  		
+	</div>
 </div>
+				
+	  </form>
+	</div>
                     </div>
                 </div>
             </div>
@@ -176,5 +190,7 @@ if ($_SESSION['username']!= true){
         $("#wrapper").toggleClass("toggled");
     });
     </script>
+
 </body>
+
 </html>

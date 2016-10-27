@@ -142,7 +142,7 @@ if ($_SESSION['username']!= true){
 							}
 							echo "<table style='width:100%; text-align:left;'>";
 									echo"<tr>";
-										echo '<td><a href="view_entity_admin.php?eid='.$row['eid'].'">&nbsp&nbsp&nbsp&nbsp' . $row['title'] .'</a></td>';
+										echo '<td><a href="post_comments.php?eid='.$row['eid'].'">&nbsp&nbsp&nbsp&nbsp' . $row['title'] .'</a></td>';
 										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['cat_id'] .'</td>';
 										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['username'] .'</td>';
 										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['posted_date'] .'</td>';

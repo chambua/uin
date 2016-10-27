@@ -1,4 +1,4 @@
-<?php require_once('session_start.php')?>
+<?php require_once('includes/session_start.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,54 +12,92 @@
     <meta name="author" content="">
 
 	<title>University Intellectual Nertwork</title>
-     <?php require_once('includes/head.php'); ?>
-
-
+	<!-- including head.php file that contains boostraps for styling -->
+     <?php
+		require_once('includes/head.php');
+	 ?>
+	
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
+
+	<!-- include style for table -->
+	<?php require_once('includes/table_style.php')?>
 	
 </head>
 <body>
     <div id="wrapper">
-      
-	<?php require_once('includes/side_menu.php')?>
-	  
-    <!-- Page Content -->
+    
+        <!--include side panel menu -->
+		<?php require_once('includes/side_menu.php') ?>	
+    
+
+        <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
          
-	<?php require_once('includes/top_menu.php')?> <hr/>
+		 <!-- include top menu -->
+		<?php require_once('includes/top_menu.php') ?><hr/>
 						
 		<div class="form-group">
 			<div  class="col-xs-10" >
-			<p align="center" ><font color="DarkCyan">Fill the form to Add new University</font></p><hr>
-        
+			<p align="center" ><font color="DarkCyan">You can edit University information</font></p><hr>
+				
+				<?php 
+					if (isset($_GET['uni_id']))
+					{
+						if (isset($_GET['uni_id']))
+						{
+							// grab the university ID from the GET
+							$uni_id = $_GET['uni_id'];	
+						}
+							else if (isset($_POST['uni_id']))
+							{
+								//grab the university ID from the POST
+								$uni_id= $_POST['uni_id'];
+							}
+					
+						include('connect.php');
+						$query = mysql_query("SELECT * FROM university WHERE uni_id = '$uni_id'");
+						$count = mysql_num_rows($query);
+						while ($dis= mysql_fetch_array($query)){
+							$uni_id = $dis["uni_id"];
+							$uni_name = $dis["uni_name"];
+							$uni_description = $dis["uni_description"];
+						}
+				}
+				
+				?>
+				
 					<!-- creating the form to create new category-->
-					<form role="form" name="create" method="post" action="" >
+					<form enctype="multipart/form-data" method="post" action="">
 	
 						<div class="form-group">
+								<input type="text" value="<?php echo  $uni_id ?>" hidden name="uni_id" >
+							</div>
+							
+						<div class="form-group">
 							<label >University name:</label>
-							<input name="uni_name" type="text" required class="form-control">
+							<input name="uni_name" type="text" value="<?php echo  $uni_name ?>"  class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Description:</label>
-							<textarea rows="10" name="uni_description" type="textarea" class="form-control" placeholder="give description"></textarea>
+							<textarea rows="10" name="uni_description" type="text"  class="form-control"><?php echo  $uni_description  ?></textarea>
 						</div>
 
 						<div class="form-group">
-							<input name="create" type="submit" class="btn btn-info" value="Add">
+							<input name="update" type="submit" class="btn btn-info" value="update">
 						</div>
 					</form>
 					
 					
-			<?php 
-				if(isset($_POST['create']))  
+				<?php 
+				if(isset($_POST['update']))  
 				{  
 					require_once("connectvars.php");	  
 					$uni_name = $_POST["uni_name"];
@@ -93,11 +131,11 @@
 				
                 //insert the category name into the database.  
 					$dbcon = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
-					$insert_uni="insert into university VALUES ('NULL','$uni_name','$uni_description')";
+					$insert_uni="UPDATE university SET uni_id='$uni_id',uni_name='$uni_name',uni_description='$uni_description' WHERE uni_id=$uni_id";
 					echo "<meta http-equiv='refresh' content='0;url=university.php'>";
-					if(mysqli_query($dbcon,$insert_uni))  
+					if(mysqliquery($dbcon,$insert_uni))  
 					{  
-						echo"<script>alert('University added')</script>";  
+						echo"<script>alert('University info updates')</script>";  
 					}  
 						else  
 							{  
@@ -105,8 +143,10 @@
 							} 
   
 				}  
-			?>										  
-			<div class="form-group" style="text-align:center" class="form-group required"><hr/><a target='_blank' href="tnc.html">| term and conditions of use | Powered by University Intellectual Nertwork &nbsp &#9400; 2016</a><hr/></div>				  		</div>
+			?>							
+																		  
+				<div class="form-group" style="text-align:center" class="form-group required"><hr/><a target='_blank' href="tnc.html">| term and conditions of use | Powered by University Intellectual Nertwork &nbsp &#9400; 2016</a><hr/></div>				  		
+			</div>
 		</div>	
 	</form>
 </div>
@@ -114,7 +154,9 @@
                 </div>
             </div>
         </div>
+
     </div>
+	
     <!-- Menu Toggle Script -->
     <script>
     $("#menu-toggle").click(function(e) {

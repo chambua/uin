@@ -1,19 +1,4 @@
-<?php
-session_start();
-if ($_SESSION['username']!= true){
-	header("location:login.php");
-	 $_SESSION['username'];
-}//starting the session
-?>
-<?php 
-include('connect.php');
-$username = $_SESSION['username'] ;
-$query=mysql_query("SELECT * FROM users WHERE username='$username'");
-$count=mysql_num_rows($query);
-while($dis=mysql_fetch_array($query)){
-$username = $dis["username"];
-}
-?>
+<?php require_once('includes/session_start.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,111 +12,48 @@ $username = $dis["username"];
     <meta name="author" content="">
 
 	<title>University Intellectual Nertwork</title>
-	<!-----Including CSS for different screen sizes----->
-	<link rel="stylesheet" type="text/css" href="responsiveform.css">
-	<link rel="stylesheet" media="screen and (max-width: 1200px) and (min-width: 601px)" href="responsiveform1.css" />
-	<link rel="stylesheet" media="screen and (max-width: 600px) and (min-width: 351px)" href="responsiveform2.css" />
-	<link rel="stylesheet" media="screen and (max-width: 350px)" href="responsiveform3.css" />
 
 	<!-- including head.php file that contains boostraps for styling -->
-     <?php
-		require_once('includes/head.php');
-	 ?>
+     <?php require_once('includes/head.php');  ?>
 	
-
-	
-    <title>University Intellectual Nertwork</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 	
+	<!-- include style for table -->
+	<?php require_once('includes/table_style.php')?>
 	
-	<style>
-		table, th, td {
-		table-layout: fixed;
-		border: 0px solid black;
-		padding: 5px;
-		}
-		table {
-		border-spacing: 15px;
-		}
-	</style>
-	
-
 </head>
-
 <body>
 
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-          <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#">UIN</a></li>
-				<li><a class="active" href="home.php">Home</a></li>
-                <li><a href="index.php">User Accounts</a></li>
-                <li><a class="active" href="posts.php">posts</a></li>
-                <li><a href="#">comments</a></li>
-                <li><a href="categories.php">Categories</a></li>
-                <li><a href="university.php">University</a></li>
-                <li><li ><a href="change_password.php">Uploaded Files</a></li></li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
+		<!--include side panel menu -->
+		<?php require_once('includes/side_menu.php') ?>	
+		
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
          
-			<nav class="navbar-default">
-				<div class="container-fluid">
-				<div class="navbar-header">
-				 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>                        
-				</button>	
-					<a class="navbar-brand" class="active" href="#">University Intellectual Nertwork</a>
-					</div>
-					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul class="nav navbar-nav">
-					<li><a href="#"></a></li>
-				</ul>
-					<?php
-						require_once('includes/head_sms.php');
-					?>
-				</div>
-			</nav> <hr/>
-					
-					
-					
-					
-					<div class="form-group">
-								<div  class="col-xs-10" >
-							<table class='table-striped' style='width:100%'>
-								<tbody>
-									<tr>
-										<td><b>&nbsp&nbsp&nbsp&nbsp user</b></td>
-										<td><b>&nbsp&nbsp&nbsp&nbsp last name</b></td>			
-										<td><b>&nbsp&nbsp&nbsp&nbsp Email</b></td>											
-									</tr>
-								</tbody>	
-							</table>
-							
-					
-                      	
+		<!-- include top menu -->
+		<?php require_once('includes/top_menu.php') ?>	<hr/>
+				
+		<div class="form-group">
+			<div  class="col-xs-10" >
+				<table class='table-striped' style='width:100%'>
+					<tbody>
+						<tr>
+							<td><b>&nbsp&nbsp&nbsp&nbsp user</b></td>
+							<td><b>&nbsp&nbsp&nbsp&nbsp last name</b></td>			
+							<td><b>&nbsp&nbsp&nbsp&nbsp Email</b></td>											
+						</tr>
+					</tbody>	
+				</table>
+						
 				<?php
 					require_once('connectvars.php');				
 				// Connect to the database 
@@ -158,48 +80,23 @@ $username = $dis["username"];
 					}		
 				mysqli_close($connect);
 
-				?>				
-
-
-							  
-					<div class="form-group" style="text-align:center" class="form-group required">
-				<hr/>
-					<a target='_blank' href="tnc.html">| term and conditions of use | Powered by University Intellectual Nertwork &nbsp &#9400; 2016</a><hr/>
-				
+				?>							  
+				<div class="form-group" style="text-align:center" class="form-group required"><hr/><a target='_blank' href="tnc.html">| term and conditions of use | Powered by University Intellectual Nertwork &nbsp &#9400; 2016</a><hr/></div>			  		
 			</div>
-			
-					  
-							  		
-			</div>
-		</div>
-			
-			
-			
-	  </form>
-	</div>
-                    </div>
-                </div>
+		</div>	
+	</form>
+</div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
+</div>
+</div>
+<!-- Menu Toggle Script -->
+<script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-    </script>
-
+</script>
 </body>
-
 </html>

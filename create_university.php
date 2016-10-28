@@ -1,4 +1,4 @@
-<?php require_once('session_start.php')?>
+<?php require_once('includes/session_start.php')?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -75,10 +75,10 @@
 					//echo all post details
 					echo "<table style='width:100%; text-align:left;'>";
 									echo"<tr>";
-									echo '<h3>'.'<b>'.$row['username'].'</b>'.'&nbsp:&nbsp' . $row['title'] . '</h3>';	
-									echo "<hr>";									
+									echo"<td>";
+									echo '<h3>'.'<b>'.$row['username'].'</b>'.'&nbsp:&nbsp' . $row['title'] . '</h3>';								
 									echo '<p>'.$row['description'].'</p>';
-									echo "<hr>";
+									echo"</td>";
 									$i++;
 									echo"</tr>";	
 							echo"</table>";
@@ -86,7 +86,7 @@
 							  mysqli_close($connect);
 							  ?>
 							  
-							 <div class="form-group" style="text-align:center" class="form-group required"><a target='_blank' href="tnc.html">| term and conditions of use | Powered by University Intellectual Nertwork &nbsp &#9400; 2016</a><hr/></div>
+							 <hr/><div class="form-group" style="text-align:center" class="form-group required"><a target='_blank' href="tnc.html">| term and conditions of use | Powered by University Intellectual Nertwork &nbsp &#9400; 2016</a><hr/></div>
 						</div>
 					</div>	  				  		
 				</div>

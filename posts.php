@@ -50,9 +50,9 @@
 					<tbody>
 						<tr>
 							<td><b>&nbsp&nbsp&nbsp&nbsp Title</b></td>
-							<td><b>&nbsp&nbsp&nbsp&nbsp Category</b></td>			
-							<td><b>&nbsp&nbsp&nbsp&nbsp Posted By</b></td>
-							<td><b>&nbsp&nbsp&nbsp&nbsp Posted date</b></td>											
+							<td style="width:15%"><b>&nbsp&nbsp&nbsp&nbsp Category</b></td>			
+							<td style="width:30%"><b>&nbsp&nbsp&nbsp&nbsp Posted By</b></td>
+							<td style="width:20%"><b>&nbsp&nbsp&nbsp&nbsp Posted date</b></td>											
 						</tr>
 					</tbody>	
 				</table>
@@ -76,9 +76,9 @@
 							echo "<table style='width:100%; text-align:left;'>";
 									echo"<tr>";
 										echo '<td><a href="post_comments.php?eid='.$row['eid'].'">&nbsp&nbsp&nbsp&nbsp' . $row['title'] .'</a></td>';
-										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['cat_id'] .'</td>';
-										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['username'] .'</td>';
-										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['posted_date'] .'</td>';
+										echo '<td style="width:15%">&nbsp&nbsp&nbsp&nbsp'.$row['cat_id'] .'</td>';
+										echo '<td style="width:30%">&nbsp&nbsp&nbsp&nbsp'.$row['username'] .'</td>';
+										echo '<td style="width:20%">&nbsp&nbsp&nbsp&nbsp'.$row['posted_date'] .'</td>';
 										
 										$i++;
 									echo"</tr>";	

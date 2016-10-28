@@ -71,7 +71,7 @@
 							}
 							echo "<table style='width:100%; text-align:left;'>";
 									echo"<tr>";
-										echo '<td><a href="view_entity_admin.php?user_id='.$row['user_id'].'">&nbsp&nbsp&nbsp&nbsp' . $row['username'] .'</a></td>';
+										echo '<td><a class="glyphicon glyphicon-user" href="view_entity_admin.php?user_id='.$row['user_id'].'">&nbsp' . $row['username'] .'</a></td>';
 										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['last_name'] .'</td>';
 										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['email'] .'</td>';
 										$i++;

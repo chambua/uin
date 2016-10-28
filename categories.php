@@ -42,11 +42,11 @@
 					
 		<div class="form-group">
 			<div  class="col-xs-10" >
-				<a href="create_category.php"><button type="button" href="create_university.php"class="btn btn-primary">Add category</button></a><hr/>
+				<a href="create_category.php"><button type="button" href="create_university.php"class="btn btn-default">Add category</button></a><hr/>
 					<table style='width:100%'>
 						<tbody>
 						<tr>
-							<td><b>&nbsp&nbsp&nbsp&nbsp category ID</b></td>
+							<td style="width:15%"><b>&nbsp&nbsp&nbsp&nbsp category ID</b></td>
 							<td><b>&nbsp&nbsp&nbsp&nbsp category name</b></td>
 							<td><b>&nbsp&nbsp&nbsp&nbsp Description</b></td>														
 						</tr>
@@ -70,7 +70,7 @@
 							}
 							echo "<table style='width:100%; text-align:left;'>";
 									echo"<tr>";
-									echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['cat_id'] .'</td>';
+									echo '<td style="width:15%">&nbsp&nbsp&nbsp&nbsp'.$row['cat_id'] .'</td>';
 										echo '<td><a href="categories_entity.php?cat_id='.$row['cat_id'].'">&nbsp&nbsp&nbsp&nbsp' . $row['cat_name'] .'</a></td>';
 										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['description'] .'</td>';
 										$i++;

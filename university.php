@@ -44,12 +44,11 @@
 						
 		<div class="form-group">
 			<div  class="col-xs-10" >
-		<a href="create_university.php"><button type="button" href="create_university.php"class="btn btn-primary">Add university</button></a><hr/>
 				<table  style='width:100%'>
 					<tr>
 						<th>&nbsp&nbsp&nbsp&nbsp University name</th>
-						<th>&nbsp&nbsp&nbsp&nbsp </th>
-						<th>&nbsp&nbsp&nbsp&nbsp Description</th>														
+						<th>&nbsp&nbsp&nbsp&nbsp Description</th>	
+						<th style="width:20%" align="right"><a class="btn btn-default" href="create_university.php">Add university</a></th>												
 					</tr>	
 				</table>
                       	
@@ -71,8 +70,9 @@
 							echo "<table style='width:100%; text-align:left;'>";
 									echo"<tr >";
 										echo '<td><a href="university_user.php?uni_id='.$row['uni_id'].'">&nbsp&nbsp&nbsp&nbsp' . $row['uni_name'] .'</a></td>';
-										echo '<td><a href="edit_university.php?uni_id='.$row['uni_id'].'">&nbsp&nbsp&nbsp&nbsp edit </a></td>';
-										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['uni_description'] .'</td>';
+										echo '<td align="left">&nbsp&nbsp&nbsp&nbsp'.$row['uni_description'] .'</td>';
+										echo '<td style="width:20%" align="right"><a class="btn btn-default" href="edit_university.php?uni_id='.$row['uni_id'].'">edit<span class="glyphicon glyphicon-pencil" aria-hidden="true"> </a></button></td>';
+								
 									echo"</tr>";
 								$i++;									
 							echo"</table>";

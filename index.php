@@ -47,9 +47,10 @@
 				<table class='table-striped' style='width:100%'>
 					<tbody>
 						<tr>
-							<td><b>&nbsp&nbsp&nbsp&nbsp user</b></td>
+							<td style="width:15%"><b>&nbsp&nbsp&nbsp&nbsp user</b></td>
 							<td><b>&nbsp&nbsp&nbsp&nbsp last name</b></td>			
-							<td><b>&nbsp&nbsp&nbsp&nbsp Email</b></td>											
+							<td><b>&nbsp&nbsp&nbsp&nbsp Email</b></td>
+							<td><b>&nbsp&nbsp&nbsp&nbsp </b></td>								
 						</tr>
 					</tbody>	
 				</table>
@@ -71,9 +72,10 @@
 							}
 							echo "<table style='width:100%; text-align:left;'>";
 									echo"<tr>";
-										echo '<td><a class="glyphicon glyphicon-user" href="view_entity_admin.php?user_id='.$row['user_id'].'">&nbsp' . $row['username'] .'</a></td>';
+										echo '<td style="width:15%"><a class="glyphicon glyphicon-user" href="view_entity_admin.php?user_id='.$row['user_id'].'">&nbsp' . $row['username'] .'</a></td>';
 										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['last_name'] .'</td>';
 										echo '<td>&nbsp&nbsp&nbsp&nbsp'.$row['email'] .'</td>';
+										echo '<td><b><a class="btn btn-default" href="#">Activate</a> &nbsp <a class="btn btn-default" href="#">Deactivate</a></b></td>';
 										$i++;
 									echo"</tr>";							
 							echo"</table>";

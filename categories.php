@@ -42,13 +42,12 @@
 					
 		<div class="form-group">
 			<div  class="col-xs-10" >
-				<a href="create_category.php"><button type="button" href="create_university.php"class="btn btn-default">Add category</button></a><hr/>
 					<table style='width:100%'>
 						<tbody>
 						<tr>
 							<td style="width:15%"><b>&nbsp&nbsp&nbsp&nbsp category ID</b></td>
 							<td><b>&nbsp&nbsp&nbsp&nbsp category name</b></td>
-							<td><b>&nbsp&nbsp&nbsp&nbsp Description</b></td>														
+							<td><b>&nbsp&nbsp&nbsp Description &nbsp <a href="create_category.php" class="btn btn-default">Add category</a></b></td>														
 						</tr>
 						</tbody>	
 					</table>

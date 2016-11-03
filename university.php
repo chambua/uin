@@ -42,8 +42,8 @@
 		<?php require_once('includes/top_menu.php') ?>	
 		 <hr/>
 						
-		<div class="form-group">
-			<div  class="col-xs-10" >
+	
+	
 				<table  style='width:100%'>
 					<tr>
 						<th>&nbsp&nbsp&nbsp&nbsp University name</th>
@@ -81,9 +81,7 @@
 
 				?>												  
 				<div class="form-group" style="text-align:center" class="form-group required"><hr/><a target='_blank' href="tnc.html">| term and conditions of use | Powered by University Intellectual Nertwork &nbsp &#9400; 2016</a><hr/></div>				  		
-			</div>
-		</div>	
-	</form>
+	
 </div>
                     </div>
                 </div>
